@@ -7,7 +7,7 @@ function Chart({charts}) {
 	const [chartOption, setchartOption] = useState("stat1")
 	const [chartType, setchartType] = useState("line")
 	const rowData = charts.map((chart) => chart[chartOption])
-	const categoryData = charts.map((chart) => chart.name)
+	const categoryData = charts.map((chart) => chart?.name)
 
 	const options = {
 		title: {
@@ -84,9 +84,9 @@ function Chart({charts}) {
 	)
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	// Get the posts from backend on component render
-	const res = await fetch(`https://chart.jencan.net/api/chart-data`, { method: 'GET'})
+	const res = await fetch(`http://localhost:3000/api/chart-data`, { method: 'GET'})
 	const charts = await res.json()
 
 	return {
