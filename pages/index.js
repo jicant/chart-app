@@ -1,8 +1,15 @@
 import Head from 'next/head'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
+/**
+ * Single page to render React component displaying highchart that toggles between line or bar.
+ *
+ * @param   {object}  charts  Props required by component on mounting.
+ *
+ * @return  Renders page in React to be renderered.
+ */
 function Chart({charts}) {
 	const [chartOption, setchartOption] = useState("stat1")
 	const [chartType, setchartType] = useState("line")
@@ -76,7 +83,7 @@ function Chart({charts}) {
 					jicant
 				</a>
 				 / 
-				<a className="flex p-1" href="https://github.com/jen/chart-app">
+				<a className="flex p-1" href="https://github.com/jen/">
 					jencant
 				</a>
 			</footer>
@@ -86,10 +93,11 @@ function Chart({charts}) {
 
 export const getServerSideProps = async () => {
 	// Get the posts from backend on component render
+	
+	// NextJS recommendation is to do this directly on the backend as its more efficient, but showing here as example of calling API.
 	const res = await fetch(`${process.env.HOST}/api/chart-data`, { method: 'GET'})
 	const charts = await res.json()
-	console.log(`${process.env.HOST}/api/chart-data`)
-	
+
 	return {
 		props: {
 			charts,
