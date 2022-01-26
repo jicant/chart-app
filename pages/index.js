@@ -88,7 +88,8 @@ export const getServerSideProps = async () => {
 	// Get the posts from backend on component render
 	const res = await fetch(`${process.env.HOST}/api/chart-data`, { method: 'GET'})
 	const charts = await res.json()
-
+	console.log(`${process.env.HOST}/api/chart-data`)
+	
 	return {
 		props: {
 			charts,
