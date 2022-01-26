@@ -86,7 +86,7 @@ function Chart({charts}) {
 
 export async function getStaticProps() {
 	// Get the posts from backend on component render
-	const res = await fetch(`http://localhost:3000/api/chart-data`, { method: 'GET'})
+	const res = await fetch(`https://chart.jencan.net/api/chart-data`, { method: 'GET'})
 	const charts = await res.json()
 
 	return {
