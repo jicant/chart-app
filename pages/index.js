@@ -84,9 +84,9 @@ function Chart({charts}) {
 	)
 }
 
-export async function getServerSideProps() {
+export const getServerSideProps = async () => {
 	// Get the posts from backend on component render
-	const res = await fetch(`http://localhost:3000/api/chart-data`, { method: 'GET'})
+	const res = await fetch(`${process.env.HOST}/api/chart-data`, { method: 'GET'})
 	const charts = await res.json()
 
 	return {
