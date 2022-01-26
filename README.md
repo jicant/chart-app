@@ -1,4 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Simple charts app
+This is a simple chart app made with NextJS (ReactJS + Node) with Tailwind. 
+
+It calls an API on page load and renders the data into a chart which toggles between two datasets and can switch types between a bar + line graph.
 
 ## Getting Started
 
